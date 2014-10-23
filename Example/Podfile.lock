@@ -1,0 +1,14 @@
+PODS:
+  - TKFormKit (0.1.0)
+
+DEPENDENCIES:
+  - TKFormKit (from `../`)
+
+EXTERNAL SOURCES:
+  TKFormKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  TKFormKit: 36245b5283a5fa4f8df76d43b5e3fa525289fe45
+
+COCOAPODS: 0.34.4

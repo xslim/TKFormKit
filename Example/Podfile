@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'TKFormKit', :exclusive => true do
+  pod "TKFormKit", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "TKFormKit", :path => "../"
+
+  
+end
