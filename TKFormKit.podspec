@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                         Easy way to make your forms in UITableView
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/TKFormKit"
+  s.homepage         = "https://github.com/xslim/TKFormKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Taras Kalapun" => "t.kalapun@gmail.com" }
@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
