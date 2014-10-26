@@ -9,11 +9,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "TKFormKit"
-  s.version          = "0.1.0"
+  s.version          = "0.0.1"
   s.summary          = "Easy way to create forms"
-  s.description      = <<-DESC
-                        Easy way to make your forms in UITableView
-                       DESC
   s.homepage         = "https://github.com/xslim/TKFormKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
@@ -31,5 +28,4 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
