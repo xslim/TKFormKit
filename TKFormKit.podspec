@@ -1,15 +1,6 @@
-#
-# Be sure to run `pod lib lint TKFormKit.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "TKFormKit"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Easy way to create forms"
   s.homepage         = "https://github.com/xslim/TKFormKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -22,9 +13,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m}'
-  s.resource_bundles = {
-    'TKFormKit' => ['Pod/Assets/*.png']
-  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
