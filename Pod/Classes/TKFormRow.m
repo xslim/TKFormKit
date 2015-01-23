@@ -188,7 +188,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%li: %@", self.type, self.title];
+    return [NSString stringWithFormat:@"%li: %@", (long) self.type, self.title];
 }
 
 @end

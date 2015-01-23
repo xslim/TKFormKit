@@ -28,7 +28,12 @@
 
 + (UIColor *)tintColor {
     UIWindow *w = [UIApplication sharedApplication].keyWindow;
-    return w.rootViewController.view.tintColor;
+    UIView *v = w.rootViewController.view;
+    
+    if (![v respondsToSelector:@selector(tintColor)]) {
+        return [UIColor blueColor];
+    }
+    return v.tintColor;
 }
 
 #pragma mark - Font
