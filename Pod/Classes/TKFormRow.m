@@ -181,6 +181,13 @@
     return [self.section estimatedMaxRowTitleWidth];
 }
 
+- (void)setType:(TKFormRowType)type {
+    if (self.cell && _type != type) {
+        self.cell = nil;
+    }
+    _type = type;
+}
+
 - (void)updateCell {
     if (self.cell) {
         [self.cell update];
