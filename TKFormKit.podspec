@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TKFormKit"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "Easy way to create forms"
   s.homepage         = "https://github.com/xslim/TKFormKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
