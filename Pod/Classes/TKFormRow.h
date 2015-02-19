@@ -29,6 +29,7 @@
 @property (nonatomic, assign) TKFormRowSwitchType switchType;
 
 @property (nonatomic, strong) id value;
+@property (nonatomic, assign) SEL actionSelector;
 @property (nonatomic, assign) BOOL disabled;
 @property (nonatomic, assign) BOOL required;
 @property (nonatomic, assign) BOOL hidden;

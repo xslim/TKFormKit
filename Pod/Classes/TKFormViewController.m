@@ -149,7 +149,8 @@
     }
     else if (row.type == TKFormRowTypeSelector && row.selectorType == TKFormRowSelectorTypePush) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
+    } else if (row.actionSelector) {
+        [self performSelector:row.actionSelector];
     }
 }
 

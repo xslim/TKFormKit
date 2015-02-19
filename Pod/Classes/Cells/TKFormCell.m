@@ -56,6 +56,10 @@
 - (void)configure {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    if (self.row.actionSelector) {
+        self.selectionStyle = UITableViewCellStyleDefault;
+    }
+    
     //self.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.textLabel.font = [TKFormStyle textFont];
     
