@@ -150,7 +150,10 @@
     else if (row.type == TKFormRowTypeSelector && row.selectorType == TKFormRowSelectorTypePush) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else if (row.actionSelector) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [self performSelector:row.actionSelector];
+#pragma clang diagnostic pop
     }
 }
 
