@@ -167,6 +167,9 @@
         [_cell setValue:value forKeyPath:keyPath];
     }];
     _cell.row = self;
+    if (self.actionSelector) {
+        _cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    }
     return _cell;
 }
 
