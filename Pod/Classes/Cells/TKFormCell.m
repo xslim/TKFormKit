@@ -12,12 +12,15 @@
 
 @implementation TKFormCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:nil];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:nil row:row];
 }
 
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
-    return [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier row:(TKFormRow *)row {
+    TKFormCell *cell = nil;
+    cell = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+    cell.row = row;
+    return cell;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

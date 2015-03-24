@@ -13,8 +13,8 @@ static NSString* const TKFormDateCellReuseIdentifier = @"DateCell";
 
 @implementation TKFormDateCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormDateCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormDateCellReuseIdentifier row:row];
 }
 
 - (void)configure {

@@ -43,6 +43,8 @@
 @property (nonatomic, strong) NSArray *toggleSectionTags;
 @property (nonatomic, strong) NSArray *toggleRowTags;
 
+@property (nonatomic, strong) NSArray *toggleOffRowTags;
+
 @property (nonatomic, strong) NSMutableDictionary *cellConfig;
 //@property (nonatomic, strong) NSMutableDictionary *cellConfigAtConfigure;
 

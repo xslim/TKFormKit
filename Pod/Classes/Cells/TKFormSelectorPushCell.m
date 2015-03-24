@@ -22,9 +22,10 @@
 static NSString* const TKFormSelectorPushCellReuseIdentifier = @"SelectorPushCell";
 @implementation TKFormSelectorPushCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormSelectorPushCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormSelectorPushCellReuseIdentifier row:row];
 }
+
 
 - (void)configure {
     [super configure];

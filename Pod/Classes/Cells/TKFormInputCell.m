@@ -18,8 +18,8 @@ static NSString* const TKFormEditableCellReuseIdentifier = @"EditableCell";
 
 @implementation TKFormInputCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormEditableCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormEditableCellReuseIdentifier row:row];
 }
 
 - (void)configure {
@@ -59,7 +59,7 @@ static NSString* const TKFormEditableCellReuseIdentifier = @"EditableCell";
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
     }
     
-    CGFloat maxTitleWidth = [self.row estimatedMaxRowTitleWidthInSection];
+    CGFloat maxTitleWidth = (self.row.title.length > 0) ? [self.row estimatedMaxRowTitleWidthInSection] : 0;
     CGFloat w = self.bounds.size.width - maxTitleWidth - 50;
     if (maxTitleWidth == 0) {
         w += 20;
@@ -72,8 +72,11 @@ static NSString* const TKFormEditableCellReuseIdentifier = @"EditableCell";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    self.row.value = textField.text;
     return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.row.value = textField.text;
 }
 
 - (UIView *)inputAccessoryView {

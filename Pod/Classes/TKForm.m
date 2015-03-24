@@ -367,6 +367,20 @@
 
 }
 
+- (void)toggleOffRowTags:(NSArray *)rowTags {
+    if (!rowTags) {
+        return;
+    }
+    for (TKFormSection *section in self.sections){
+        for (TKFormRow *row in section.rows) {
+            if ([rowTags containsObject:row.tag]){
+                row.value = @NO;
+                [row updateCell];
+            }
+        }
+    }
+}
+
 - (void)toggleSectionTags:(NSArray *)sectionTags rowTags:(NSArray *)rowTags
 {
     
@@ -501,12 +515,27 @@
 
 - (void)rowValueHasChanged:(TKFormRow *)row oldValue:(id)oldValue newValue:(id)newValue {
     
+    if ([oldValue isKindOfClass:[NSNull class]]) {
+        oldValue = nil;
+    }
+    if ([newValue isKindOfClass:[NSNull class]]) {
+        newValue = nil;
+    }
+    
+    if (!oldValue && row.type == TKFormRowTypeSwitch) {
+        oldValue = @NO;
+    }
+    
     if (self.viewController) {
         [self.viewController rowValueHasChanged:row oldValue:oldValue newValue:newValue];
     }
     
-    if (row.type == TKFormRowTypeSwitch) {
+    if (row.type == TKFormRowTypeSwitch && oldValue && (oldValue != newValue)) {
         //NSLog(@"%@ -> %@", oldValue, newValue);
+        
+        if ([newValue boolValue]) {
+            [self toggleOffRowTags:row.toggleOffRowTags];
+        }
         
         [self toggleSectionTags:row.toggleSectionTags rowTags:row.toggleRowTags];
     }

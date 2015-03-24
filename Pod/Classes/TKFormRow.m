@@ -161,12 +161,11 @@
 
 - (TKFormCell *)cellForFormController:(TKFormViewController *)formController {
     if (_cell) return _cell;
-    _cell = [[self.formCellClass alloc] init];
+    _cell = [[self.formCellClass alloc] initWithRow:self];
     [self configureCell:_cell];
     [self.cellConfig enumerateKeysAndObjectsUsingBlock:^(NSString *keyPath, id value, __unused BOOL *stop) {
         [_cell setValue:value forKeyPath:keyPath];
     }];
-    _cell.row = self;
     if (self.actionSelector) {
         _cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     }

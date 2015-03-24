@@ -13,8 +13,8 @@
 static NSString* const TKFormReadOnlyCellReuseIdentifier = @"InfoCell";
 @implementation TKFormInfoCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormReadOnlyCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormReadOnlyCellReuseIdentifier row:row];
 }
 
 - (void)configure {
@@ -31,8 +31,8 @@ static NSString* const TKFormReadOnlyCellReuseIdentifier = @"InfoCell";
 static NSString* const TKFormOnSwitchReuseIdentifier = @"SwitchCell";
 @implementation TKFormSwitchCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormOnSwitchReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormOnSwitchReuseIdentifier row:row];
 }
 
 - (void)configure {
@@ -59,8 +59,8 @@ static NSString* const TKFormOnSwitchReuseIdentifier = @"SwitchCell";
 static NSString* const TKFormSwitchCheckCellReuseIdentifier = @"SwitchCheck";
 @implementation TKFormSwitchCheckCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormSwitchCheckCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormSwitchCheckCellReuseIdentifier row:row];
 }
 
 - (void)configure {
@@ -101,8 +101,12 @@ static NSString* const TKFormButtonCellReuseIdentifier = @"ButtonCell";
 
 @implementation TKFormButtonCell
 
-- (instancetype)init {
-    return [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TKFormButtonCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    TKFormButtonCell *cell = nil;
+    UITableViewCellStyle style = (row.value) ? UITableViewCellStyleValue1 : (row.details) ? UITableViewCellStyleSubtitle : UITableViewCellStyleDefault;
+    cell = [self initWithStyle:style reuseIdentifier:TKFormButtonCellReuseIdentifier];
+    cell.row = row;
+    return cell;
 }
 
 - (void)configure {
@@ -129,8 +133,8 @@ static NSString* const TKFormButtonCellReuseIdentifier = @"ButtonCell";
 static NSString* const TKFormStepCounterCellReuseIdentifier = @"StepCounterCell";
 @implementation TKFormStepCounterCell
 
-- (instancetype)init {
-    return [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TKFormStepCounterCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormStepCounterCellReuseIdentifier row:row];
 }
 
 - (void)configure {
@@ -165,8 +169,8 @@ static NSString* const TKFormStepCounterCellReuseIdentifier = @"StepCounterCell"
 static NSString* const TKFormSegmentedCellReuseIdentifier = @"SegmentedCell";
 @implementation TKFormSegmentedCell
 
-- (instancetype)init {
-    return [self initWithReuseIdentifier:TKFormSegmentedCellReuseIdentifier];
+- (instancetype)initWithRow:(TKFormRow *)row {
+    return [self initWithReuseIdentifier:TKFormSegmentedCellReuseIdentifier row:row];
 }
 
 - (void)configure {

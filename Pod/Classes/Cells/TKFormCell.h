@@ -18,7 +18,8 @@
 @property (nonatomic, weak) id value;
 @property (nonatomic, assign) BOOL disabled;
 
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (instancetype)initWithRow:(TKFormRow *)row;
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier row:(TKFormRow *)row;
 
 - (void)configure;
 - (void)update;
