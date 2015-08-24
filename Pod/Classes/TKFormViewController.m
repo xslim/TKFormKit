@@ -134,6 +134,13 @@
     return [[self.form visibleSectionAtIndex:section] footerTitle];
 }
 
+- (void)_performRowActionSelector:(SEL)sel {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:sel];
+#pragma clang diagnostic pop
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TKFormRow *row = [self.form visibleRowAtIndexPath:indexPath];
@@ -145,15 +152,14 @@
         if (row.viewControllerClass) {
             UIViewController *vc = [[row.viewControllerClass alloc] init];
             [self pushViewController:vc animated:YES];
+        } else if (row.actionSelector) {
+            [self _performRowActionSelector:row.actionSelector];
         }
     }
     else if (row.type == TKFormRowTypeSelector && row.selectorType == TKFormRowSelectorTypePush) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else if (row.actionSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self performSelector:row.actionSelector];
-#pragma clang diagnostic pop
+        [self _performRowActionSelector:row.actionSelector];
     }
 }
 
