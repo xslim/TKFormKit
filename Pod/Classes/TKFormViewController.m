@@ -137,7 +137,9 @@
 - (void)_performRowActionSelector:(SEL)sel {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self performSelector:sel];
+    if ([self respondsToSelector:sel]) {
+        [self performSelector:sel onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+    }
 #pragma clang diagnostic pop
 }
 
