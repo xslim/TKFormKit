@@ -68,7 +68,7 @@
 
 - (void)update {
     self.textLabel.text = self.row.title;
-    self.detailTextLabel.text = self.row.title;
+    self.detailTextLabel.text = self.row.details;
     self.textLabel.textColor  = self.disabled ? [TKFormStyle disabledTextColor] : [TKFormStyle textColor];
     
     if (self.row.hasImage && self.row.image.length > 0) {
