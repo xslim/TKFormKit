@@ -32,7 +32,11 @@ static NSString* const TKFormOnSwitchReuseIdentifier = @"SwitchCell";
 @implementation TKFormSwitchCell
 
 - (instancetype)initWithRow:(TKFormRow *)row {
-    return [self initWithReuseIdentifier:TKFormOnSwitchReuseIdentifier row:row];
+    //return [self initWithReuseIdentifier:TKFormOnSwitchReuseIdentifier row:row];
+    TKFormSwitchCell *cell = nil;
+    cell = [self initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:TKFormOnSwitchReuseIdentifier];
+    cell.row = row;
+    return cell;
 }
 
 - (void)configure {
