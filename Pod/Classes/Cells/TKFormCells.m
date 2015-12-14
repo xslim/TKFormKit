@@ -1,6 +1,5 @@
 //
 //  TKFormCells.m
-//  ADYWallet
 //
 //  Created by Taras Kalapun on 9/10/14.
 //  Copyright (c) 2014 Taras Kalapun. All rights reserved.
@@ -190,14 +189,27 @@ static NSString* const TKFormSegmentedCellReuseIdentifier = @"SegmentedCell";
     [self.segmentedControl removeAllSegments];
     NSString *valueString = [self.value description];
     NSUInteger i = 0;
-    for (id obj in self.row.selectorOptions) {
-        NSString *title = [obj description];
-        [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
-        if ([valueString isEqualToString:title]) {
-            [self.segmentedControl setSelectedSegmentIndex:i];
+    
+    if (self.row.selectorOptionsDictionary) {
+        for (id key in self.row.selectorOptionsDictionary) {
+            NSString *title = self.row.selectorOptionsDictionary[key];
+            [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
+            if ([valueString isEqualToString:[key description]]) {
+                [self.segmentedControl setSelectedSegmentIndex:i];
+            }
+            i++;
         }
-        i++;
+    } else {
+        for (id obj in self.row.selectorOptions) {
+            NSString *title = [obj description];
+            [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
+            if ([valueString isEqualToString:title]) {
+                [self.segmentedControl setSelectedSegmentIndex:i];
+            }
+            i++;
+        }
     }
+
     [self.segmentedControl sizeToFit];
     
     self.segmentedControl.enabled = !self.disabled;
@@ -205,7 +217,11 @@ static NSString* const TKFormSegmentedCellReuseIdentifier = @"SegmentedCell";
 
 - (void)controlValueChanged:(UIControl *)control {
     NSInteger index = self.segmentedControl.selectedSegmentIndex;
-    self.row.value = self.row.selectorOptions[index];
+    if (self.row.selectorOptionsDictionary) {
+        self.row.value = self.row.selectorOptionsDictionary.allKeys[index];
+    } else {
+        self.row.value = self.row.selectorOptions[index];
+    }
 }
 
 @end
