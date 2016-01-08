@@ -63,6 +63,8 @@
     self.textLabel.font = [TKFormStyle textFont];
     
     self.detailTextLabel.textColor = [TKFormStyle darkGreyColor];
+    self.detailTextLabel.numberOfLines = 0;
+    self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     //self.detailTextLabel.font = [TKFormStyle textFont];
 }
 
