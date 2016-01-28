@@ -66,6 +66,10 @@
     return [self.form indexPathForVisibleRow:row];
 }
 
+- (BOOL)shouldProceedWithActionForRow:(TKFormRow *)row {
+    return YES;
+}
+
 - (void)formDidSelectRow:(TKFormRow *)row {
     if ([self.form.delegate respondsToSelector:@selector(formDidSelectRow:)]) {
         [self.form.delegate formDidSelectRow:row];
@@ -148,6 +152,11 @@
     TKFormRow *row = [self.form visibleRowAtIndexPath:indexPath];
     
     [self formDidSelectRow:row];
+    
+    if ([self shouldProceedWithActionForRow:row] == NO) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
     
     if (row.type == TKFormRowTypeButton) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
