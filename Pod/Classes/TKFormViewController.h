@@ -15,6 +15,8 @@
 
 - (NSDictionary *)formValues;
 
+- (BOOL)shouldProceedWithActionForRow:(TKFormRow *)row;
+
 - (void)formDidSelectRow:(TKFormRow *)row;
 - (void)formDeselectRow:(TKFormRow *)row;
 - (void)rowValueHasChanged:(TKFormRow *)row oldValue:(id)oldValue newValue:(id)newValue;
