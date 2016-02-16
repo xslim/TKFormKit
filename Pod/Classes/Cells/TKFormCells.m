@@ -50,6 +50,7 @@ static NSString* const TKFormOnSwitchReuseIdentifier = @"SwitchCell";
     [super update];
     self.switchControl.on = [self.value boolValue];
     self.switchControl.enabled = !self.disabled;
+    self.switchControl.accessibilityIdentifier = self.row.tag;
 }
 
 - (void)controlValueChanged:(UIControl *)control {
