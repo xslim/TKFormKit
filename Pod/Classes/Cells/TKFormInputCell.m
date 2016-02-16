@@ -89,11 +89,19 @@ static NSString* const TKFormEditableCellReuseIdentifier = @"EditableCell";
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL shouldChange = NO;
     if (self.row.inputType != TKFormRowInputTypePin) {
-        return YES;
+        shouldChange = YES;
+    } else {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        shouldChange = (newLength > 4) ? NO : YES;
     }
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength > 4) ? NO : YES;
+    
+    if (shouldChange) {
+        self.row.value = self.textField.text;
+    }
+    
+    return shouldChange;
 }
 
 @end
