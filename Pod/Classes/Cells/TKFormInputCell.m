@@ -98,7 +98,9 @@ static NSString* const TKFormEditableCellReuseIdentifier = @"EditableCell";
     }
     
     if (shouldChange) {
-        self.row.value = self.textField.text;
+        NSString *newText = [NSString stringWithString:self.textField.text];
+        newText = [newText stringByReplacingCharactersInRange:range withString:string];
+        self.row.value = newText;
     }
     
     return shouldChange;
