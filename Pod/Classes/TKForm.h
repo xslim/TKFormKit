@@ -25,15 +25,15 @@
 + (instancetype)form;
 
 
-- (TKFormSection *)addSectionWithTitle:(NSString *)title;
-- (TKFormSection *)addSection:(TKFormSection *)section;
+- (TKFormSection *)addSectionWithTitle:(nonnull NSString *)title;
+- (TKFormSection *)addSection:(nonnull TKFormSection *)section;
 - (void)addSection:(TKFormSection *)section afterSection:(TKFormSection *)afterSection;
 //- (void)addSection:(TKFormSection *)section beforeSection:(TKFormSection *)beforeSection;
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeSection:(TKFormSection *)section;
 
 // helper
-- (void)addRow:(TKFormRow *)row;
+- (void)addRow:(nonnull TKFormRow *)row;
 
 - (NSDictionary *)formValues;
 
