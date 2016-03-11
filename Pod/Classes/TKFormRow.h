@@ -49,22 +49,22 @@
 //@property (nonatomic, strong) NSMutableDictionary *cellConfigAtConfigure;
 
 
-+ (instancetype)rowWithTag:(NSString *)tag type:(TKFormRowType)type;
-+ (instancetype)rowWithTag:(NSString *)tag type:(TKFormRowType)type title:(NSString *)title;
++ (instancetype)rowWithTag:(nonnull NSString *)tag type:(TKFormRowType)type;
++ (instancetype)rowWithTag:(nonnull NSString *)tag type:(TKFormRowType)type title:(nonnull NSString *)title;
 
-+ (instancetype)infoWithTag:(NSString *)tag title:(NSString *)title value:(id)value;
++ (instancetype)infoWithTag:(nonnull NSString *)tag title:(nonnull NSString *)title value:(nullable id)value;
 
-+ (instancetype)inputWithTag:(NSString *)tag title:(NSString *)title value:(id)value;
-+ (instancetype)inputWithTag:(NSString *)tag type:(TKFormRowInputType)type title:(NSString *)title value:(id)value;
-+ (instancetype)inputWithTag:(NSString *)tag type:(TKFormRowInputType)type title:(NSString *)title placeholder:(NSString *)placeholder value:(id)value;
++ (instancetype)inputWithTag:(nonnull NSString *)tag title:(nonnull NSString *)title value:(nullable id)value;
++ (instancetype)inputWithTag:(nonnull NSString *)tag type:(TKFormRowInputType)type title:(nonnull NSString *)title value:(nullable id)value;
++ (instancetype)inputWithTag:(nonnull NSString *)tag type:(TKFormRowInputType)type title:(nonnull NSString *)title placeholder:(nullable NSString *)placeholder value:(id)value;
 
-+ (instancetype)switchWithTag:(NSString *)tag title:(NSString *)title value:(BOOL)value;
-+ (instancetype)switchWithTag:(NSString *)tag type:(TKFormRowSwitchType)type title:(NSString *)title value:(BOOL)value;
++ (instancetype)switchWithTag:(nonnull NSString *)tag title:(nonnull NSString *)title value:(BOOL)value;
++ (instancetype)switchWithTag:(nonnull NSString *)tag type:(TKFormRowSwitchType)type title:(nonnull NSString *)title value:(BOOL)value;
 
-+ (instancetype)buttonWithTitle:(NSString *)title vcClass:(Class)vcClass;
++ (instancetype)buttonWithTitle:(nonnull NSString *)title vcClass:(Class)vcClass;
 
-+ (instancetype)selectorWithTag:(NSString *)tag title:(NSString *)title value:(id)value;
-+ (instancetype)selectorWithTag:(NSString *)tag type:(TKFormRowSelectorType)type title:(NSString *)title value:(id)value;
++ (instancetype)selectorWithTag:(nonnull NSString *)tag title:(nonnull NSString *)title value:(id)value;
++ (instancetype)selectorWithTag:(nonnull NSString *)tag type:(TKFormRowSelectorType)type title:(nonnull NSString *)title value:(nullable id)value;
 
 
 
