@@ -27,8 +27,8 @@
 
 
 + (instancetype)section;
-+ (instancetype)sectionWithTitle:(NSString *)title;
-+ (instancetype)sectionWithTitle:(NSString *)title tag:(NSString *)tag;
++ (instancetype)sectionWithTitle:(nullable NSString *)title;
++ (nonnull instancetype)sectionWithTitle:(nullable NSString *)title tag:(nullable NSString *)tag;
 
 - (TKFormRow *)addRow:(TKFormRow *)row;
 - (void)addRow:(TKFormRow *)row afterRow:(TKFormRow *)afterRow;
